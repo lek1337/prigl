@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Выпускной 2026 — Официальное приглашение</title>
+<meta property="og:title"       content="Выпускной 2026">
+<meta property="og:description" content="Официальное приглашение">
+<meta property="og:type"        content="website">
+<meta property="og:locale"      content="ru_RU">
+<meta name="twitter:card"        content="summary">
+<meta name="twitter:title"       content="Выпускной 2026">
+<meta name="twitter:description" content="Официальное приглашение">
+<meta name="description"  content="Официальное приглашение на выпускной вечер 2026">
+<meta name="theme-color"  content="#C4A97A">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════ */
+:root {
+  --cream:      #FDFAF5;
+  --gold:       #8C7356;
+  --gold-l:     #C4A97A;
+  --gold-pale:  #E8D9C0;
+  --text-dark:  #3A2E22;
+  --text-mid:   #6B5744;
+
+  /* ── Gold Foil: 10-stop embossed metallic ── */
+  --foil: linear-gradient(
+    108deg,
+    #5C4830  0%,
+    #C4A97A 12%,
+    #F5EAC0 22%,
+    #8C7356 33%,
+    #E0C688 44%,
+    #F8F0D0 52%,
+    #9A8060 62%,
+    #D4B87A 72%,
+    #F2E4B8 82%,
+    #7A6040 92%,
+    #C4A97A 100%
+  );
+
+  /* Glass tokens */
+  --gb:  rgba(255,255,255,0.34);
+  --gbh: rgba(255,255,255,0.52);   /* hover bg */
+  --gbr: rgba(255,255,255,0.68);   /* border */
+  --gbhr:rgba(255,255,255,0.94);   /* hover border */
+  --gsh: 0 8px 50px rgba(140,115,86,0.13), 0 2px 8px rgba(140,115,86,0.07);
+  --gshh:0 12px 60px rgba(140,115,86,0.22), 0 2px 12px rgba(140,115,86,0.12),
+         0 0 0 1.5px rgba(255,255,255,0.6), inset 0 0 28px rgba(255,255,255,0.1);
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+body {
+  background-color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Paper grain – fixed top overlay */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:600;
+  pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23g)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════════
+   1. PARALLAX DEPTH LAYER
+   Large blurred Yakut diamonds & circles behind glass,
+   moving at different speeds as user scrolls.
+═══════════════════════════════════════════════════════ */
+#parallax-layer {
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:1; overflow:hidden;
+  opacity:0;
+  transition:opacity 1.6s ease;
+}
+#parallax-layer.visible { opacity:1; }
+
+.psh {
+  position:absolute;
+  will-change:transform;
+}
+
+/* ── 1. VISIBLE DIAMOND SHAPES ── */
+/* Outer diamond — prominent gold border + inner yakut SVG net */
+.psh-d {
+  border:2px solid rgba(196,169,122,0.32);
+  /* Multi-layer: gold sheen fill + inner highlight ring */
+  background:
+    radial-gradient(ellipse at 38% 32%,
+      rgba(248,228,168,0.13) 0%,
+      rgba(196,169,122,0.08) 45%,
+      rgba(196,169,122,0.03) 70%,
+      transparent 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    inset 0 0 0 12px rgba(196,169,122,0.04);
+  transform:rotate(45deg);
+  /* 4. SLOW ROTATION — each diamond spins at its own speed */
+  animation: spin-cw var(--rot-dur, 60s) linear infinite;
+}
+/* ── 1b. Yakut inner grid SVG (pseudo) ── */
+.psh-d::before {
+  content:'';
+  position:absolute; inset:12%;
+  background-image:
+    /* diagonal grid 1 */
+    repeating-linear-gradient(
+      45deg,
+      rgba(196,169,122,0.10) 0px,
+      rgba(196,169,122,0.10) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+    /* diagonal grid 2 — cross direction */
+    repeating-linear-gradient(
+      -45deg,
+      rgba(196,169,122,0.08) 0px,
+      rgba(196,169,122,0.08) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  border:1px solid rgba(196,169,122,0.14);
+  border-radius:2px;
+}
+/* ── 1c. Second inner diamond ring ── */
+.psh-d::after {
+  content:'';
+  position:absolute; inset:22%;
+  border:1.5px solid rgba(196,169,122,0.20);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+/* Circle shapes — also more visible */
+.psh-c {
+  border-radius:50%;
+  border:1.5px solid rgba(196,169,122,0.28);
+  background:radial-gradient(ellipse at 35% 30%,
+    rgba(248,224,168,0.11) 0%,
+    rgba(196,169,122,0.06) 48%,
+    transparent 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.14);
+  animation: spin-ccw var(--rot-dur, 80s) linear infinite;
+}
+.psh-c::before {
+  content:'';
+  position:absolute; inset:20%;
+  border-radius:50%;
+  border:1px solid rgba(196,169,122,0.18);
+}
+
+/* 4. ROTATION KEYFRAMES */
+@keyframes spin-cw  { to { transform: rotate(calc(45deg + 360deg)); } }
+@keyframes spin-ccw { to { transform: rotate(-360deg); } }
+
+/* Individual shapes — size, position, blur, rotation speed */
+.pd1{ width:clamp(340px,48vw,640px); height:clamp(340px,48vw,640px);
+      top:-12%; left:-14%; filter:blur(1.5px); --rot-dur:90s; }
+.pd2{ width:clamp(200px,28vw,400px); height:clamp(200px,28vw,400px);
+      top:22%; right:-10%; filter:blur(1px); --rot-dur:70s; }
+.pd3{ width:clamp(180px,24vw,340px); height:clamp(180px,24vw,340px);
+      top:54%; left:-8%; filter:blur(1.5px); --rot-dur:110s; }
+.pd4{ width:clamp(280px,38vw,520px); height:clamp(280px,38vw,520px);
+      top:76%; right:-12%; filter:blur(1px); --rot-dur:80s; }
+.pc1{ width:clamp(100px,14vw,190px); height:clamp(100px,14vw,190px);
+      top:10%; left:32%; filter:blur(0.5px); --rot-dur:60s; }
+.pc2{ width:clamp(70px,10vw,140px); height:clamp(70px,10vw,140px);
+      top:38%; right:22%; filter:blur(0px); --rot-dur:50s; }
+.pc3{ width:clamp(130px,18vw,240px); height:clamp(130px,18vw,240px);
+      top:65%; left:55%; filter:blur(1px); --rot-dur:75s; }
+
+/* ═══════════════════════════════════════════════════════
+   2. SUN / LIGHT LEAK
+   Warm radial glow that interpolates position as user
+   scrolls, simulating angled sunlight on glass panels.
+═══════════════════════════════════════════════════════ */
+#sun-leak {
+  position:fixed;
+  pointer-events:none;
+  z-index:2;
+  width:min(72vw,640px); height:min(72vw,640px);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,
+    rgba(255,238,185,0.26) 0%,
+    rgba(255,215,128,0.12) 32%,
+    rgba(240,185,85,0.05)  58%,
+    transparent 76%
+  );
+  transform:translate(-50%,-50%);
+  mix-blend-mode:multiply;
+  filter:blur(10px);
+  top:18vh; left:72vw;
+  opacity:0;
+  /* two separate transition declarations – opacity + position */
+  transition:
+    opacity 1.5s ease,
+    top    1.9s cubic-bezier(0.25,0.46,0.45,0.94),
+    left   2.1s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+#sun-leak.visible { opacity:1; }
+
+/* ═══════════════════════════════════════════════════════
+   PARTICLES
+═══════════════════════════════════════════════════════ */
+#particle-canvas {
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:3; opacity:0;
+  transition:opacity 2s ease;
+}
+#particle-canvas.visible { opacity:1; }
+
+/* ═══════════════════════════════════════════════════════
+   ENVELOPE SCREEN
+═══════════════════════════════════════════════════════ */
+#envelope-screen {
+  position:fixed; inset:0; z-index:1000;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  background:linear-gradient(158deg,#F6F0E5 0%,#EEE4D5 40%,#F1E9DB 100%);
+  transition:transform 1.05s cubic-bezier(0.76,0,0.24,1), opacity 1.05s ease;
+}
+#envelope-screen.open { transform:translateY(-100%); opacity:0; pointer-events:none; }
+
+/* 5. Editorial hint text */
+.hint-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.58rem,1.6vw,0.74rem);
+  letter-spacing:0.6em; color:var(--gold);
+  text-transform:uppercase; margin-bottom:3rem;
+  animation:pulse-hint 2.6s ease-in-out infinite;
+}
+@keyframes pulse-hint { 0%,100%{opacity:0.32;} 50%{opacity:0.88;} }
+
+/* Envelope */
+.envelope-wrap {
+  position:relative;
+  width:clamp(220px,48vw,380px);
+  cursor:pointer;
+  filter:drop-shadow(0 22px 52px rgba(140,115,86,0.28));
+  transition:transform 0.35s ease,filter 0.35s ease;
+}
+.envelope-wrap:hover {
+  transform:translateY(-8px) scale(1.025);
+  filter:drop-shadow(0 32px 65px rgba(140,115,86,0.42));
+}
+.envelope-body {
+  width:100%; aspect-ratio:1.6/1;
+  background:linear-gradient(175deg,#f0e6d3 0%,#ddd0b8 100%);
+  border-radius:4px 4px 8px 8px;
+  position:relative; border:1px solid rgba(196,169,122,0.4);
+}
+.envelope-body::before {
+  content:''; position:absolute; inset:0; border-radius:inherit;
+  background:linear-gradient(135deg,transparent 49.5%,rgba(196,169,122,0.15) 50%);
+}
+.envelope-body::after {
+  content:''; position:absolute; inset:0; border-radius:inherit;
+  background:linear-gradient(to bottom-right,rgba(196,169,122,0.2) 0%,transparent 50%),
+             linear-gradient(to bottom-left, rgba(196,169,122,0.2) 0%,transparent 50%);
+}
+.envelope-lining {
+  position:absolute; bottom:0; left:0; right:0; height:30%;
+  border-radius:0 0 7px 7px; overflow:hidden;
+  background:repeating-linear-gradient(-45deg,
+    rgba(196,169,122,0.12),rgba(196,169,122,0.12) 4px,transparent 4px,transparent 12px);
+}
+.envelope-flap-outer {
+  position:absolute; top:0; left:-2px; right:-2px; height:54%;
+  transform-origin:top center;
+  perspective:800px; z-index:5; overflow:hidden;
+}
+.envelope-flap-outer.flap-open {
+  animation:flap-open 0.65s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes flap-open {
+  0%  { transform:rotateX(0deg); }
+  30% { transform:rotateX(-42deg); }
+  100%{ transform:rotateX(-176deg); }
+}
+.envelope-flap-inner {
+  width:100%; height:200%;
+  background:linear-gradient(175deg,#ecdfc8 0%,#d8c9ac 100%);
+  clip-path:polygon(50% 90%,0% 0%,100% 0%);
+  position:absolute; top:0; left:0;
+}
+
+/* Wax seal */
+.wax-seal {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:clamp(60px,15vw,92px); height:clamp(60px,15vw,92px);
+  z-index:10; cursor:pointer;
+  transition:transform 0.3s ease;
+}
+.wax-seal:hover { transform:translate(-50%,-50%) scale(1.1) rotate(3deg); }
+.seal-circle {
+  width:100%; height:100%; border-radius:50%;
+  background:radial-gradient(ellipse at 35% 28%,#c0392b 0%,#922b21 45%,#6e1e17 80%,#4a0f0b 100%);
+  box-shadow:0 6px 20px rgba(100,10,10,0.55),
+             inset 0 2px 5px rgba(255,255,255,0.18),
+             inset 0 -2px 4px rgba(0,0,0,0.35);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.seal-circle::before {
+  content:''; position:absolute; inset:5px;
+  border-radius:50%; border:1px solid rgba(255,255,255,0.14);
+}
+.seal-circle::after {
+  content:''; position:absolute; top:-40%; left:-40%; width:60%; height:180%;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,0.18) 50%,transparent 70%);
+  transform:skewX(-15deg);
+  animation:seal-shimmer 4s ease-in-out infinite;
+}
+@keyframes seal-shimmer { 0%,75%,100%{left:-40%;opacity:0;} 40%{left:120%;opacity:1;} }
+.seal-year {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.75rem,2.5vw,1rem); font-weight:600;
+  color:rgba(255,245,230,0.95); letter-spacing:0.05em;
+  text-shadow:0 1px 3px rgba(0,0,0,0.5); position:relative; z-index:1;
+}
+.seal-drip {
+  position:absolute; bottom:-9px; left:50%; transform:translateX(-50%);
+  width:13px; height:15px;
+  background:radial-gradient(ellipse at 50% 20%,#c0392b,#6e1e17);
+  clip-path:ellipse(50% 40% at 50% 30%);
+  border-radius:0 0 50% 50%;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════════════════════════════ */
+#main-content {
+  position:relative; z-index:10;
+  opacity:0; transition:opacity 1s ease 0.2s;
+}
+#main-content.visible { opacity:1; }
+
+/* ═══════════════════════════════════════════════════════
+   4. GLASS PANELS — Frost Micro-Interaction
+   Hover deepens blur, brightens bg, adds ice glow border.
+═══════════════════════════════════════════════════════ */
+.glass {
+  background:var(--gb);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:1px solid var(--gbr);
+  box-shadow:var(--gsh);
+  border-radius:18px;
+  position:relative; overflow:hidden;
+  transition:
+    background          0.55s ease,
+    backdrop-filter     0.55s ease,
+    -webkit-backdrop-filter 0.55s ease,
+    box-shadow          0.55s ease,
+    border-color        0.55s ease;
+}
+.glass:hover {
+  background:var(--gbh);
+  backdrop-filter:blur(36px) saturate(1.8) brightness(1.04);
+  -webkit-backdrop-filter:blur(36px) saturate(1.8) brightness(1.04);
+  border-color:var(--gbhr);
+  box-shadow:var(--gshh);
+}
+/* Glint streak */
+.glass::after {
+  content:''; position:absolute;
+  top:-80%; left:-65%; width:38%; height:260%;
+  background:linear-gradient(108deg,
+    transparent 12%,
+    rgba(255,255,255,0.46) 44%,
+    rgba(255,255,255,0.08) 60%,
+    transparent 78%);
+  transform:skewX(-18deg);
+  opacity:0; pointer-events:none;
+}
+.glass.glinting::after {
+  animation:glass-glint 1.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes glass-glint {
+  0%  { left:-65%; opacity:0; }
+  5%  { opacity:1; }
+  100%{ left:135%; opacity:0; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CINEMATIC PHOTO HERO — full-viewport image with
+   parallax scroll + text overlay that fades on scroll
+═══════════════════════════════════════════════════════ */
+.photo-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* The image itself — moves at 60% scroll speed (parallax) */
+.photo-hero-img {
+  position: absolute;
+  inset: -15% 0;          /* extra vertical room for parallax travel */
+  background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=85');
+  background-size: cover;
+  background-position: center top;
+  will-change: transform;
+  transition: transform 0s linear;  /* JS drives this */
+}
+
+/* Multi-layer gradient vignette: dark at bottom for text legibility,
+   soft cream fade at very top to blend with page background */
+.photo-hero-vignette {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(253,250,245,0.55)  0%,
+      transparent            25%,
+      transparent            50%,
+      rgba(30,20,10,0.35)    75%,
+      rgba(15,10,5,0.72)    100%
+    );
+  pointer-events: none;
+}
+
+/* Text overlay at the bottom of the hero */
+.photo-hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem clamp(3rem,7vw,5rem);
+  width: 100%;
+  /* Fades out as user scrolls — driven by JS via opacity */
+  will-change: opacity, transform;
+  transition: opacity 0.05s linear, transform 0.05s linear;
+}
+
+/* 5. Editorial eyebrow — tiny caps, wide tracking */
+.hero-eyebrow {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.54rem,1.4vw,0.68rem);
+  letter-spacing: 0.62em;
+  text-transform: uppercase;
+  color: rgba(253,250,245,0.75);
+  font-weight: 400;
+  margin-bottom: 0.9rem;
+}
+
+/* 3. Gold Foil hero title */
+.hero-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem,11vw,6.8rem);
+  background: var(--foil);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.06;
+  margin-bottom: 0.6rem;
+  animation: foil-pan 7s ease-in-out infinite alternate;
+  filter:
+    drop-shadow(0 2px 16px rgba(196,169,122,0.5))
+    drop-shadow(0 1px 0 rgba(255,245,200,0.5));
+}
+@keyframes foil-pan {
+  0%   { background-position:  0% 50%; }
+  100% { background-position:220% 50%; }
+}
+
+.hero-year {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.7rem,1.9vw,0.86rem);
+  letter-spacing: 0.6em;
+  color: rgba(253,250,245,0.7);
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+/* Scroll-down cue arrow */
+.hero-scroll-cue {
+  display: block;
+  margin: 1.8rem auto 0;
+  width: 28px; height: 28px;
+  border-right: 1.5px solid rgba(253,250,245,0.5);
+  border-bottom: 1.5px solid rgba(253,250,245,0.5);
+  transform: rotate(45deg);
+  animation: cue-bounce 2s ease-in-out infinite;
+}
+@keyframes cue-bounce {
+  0%,100% { transform: rotate(45deg) translateY(0); opacity:0.5; }
+  50%     { transform: rotate(45deg) translateY(6px); opacity:1; }
+}
+
+/* ── Compact text hero below the photo (Приглашение label) ── */
+.hero {
+  padding: clamp(2.5rem,6vw,4rem) 1.5rem clamp(1.5rem,4vw,3rem);
+  text-align: center;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTIONS & GENERAL LAYOUT
+═══════════════════════════════════════════════════════ */
+section { padding:clamp(2rem,6vw,4.5rem) clamp(1rem,5vw,2.5rem); }
+.section-inner { max-width:720px; margin:0 auto; }
+.glass-panel   { padding:clamp(2rem,5vw,3.2rem) clamp(1.5rem,4vw,2.8rem); }
+
+/* 3. Gold Foil section headers — same technique as hero */
+.section-title {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.1rem,7vw,3.6rem);
+  background:var(--foil);
+  background-size:220% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:1.4rem;
+  text-align:center; line-height:1.18;
+  letter-spacing:0.02em;
+  animation:foil-pan 9s ease-in-out infinite alternate;
+  filter:drop-shadow(0 1px 0 rgba(255,245,200,0.3));
+  /* 5. Micro-typography transition */
+  transition:letter-spacing 1s cubic-bezier(0.25,0.46,0.45,0.94),
+             filter         1s ease;
+}
+.section-title.type-bloom {
+  letter-spacing:0.15em;
+  filter:drop-shadow(0 1px 0 rgba(255,245,200,0.3))
+         drop-shadow(0 0 12px rgba(196,169,122,0.3));
+}
+
+/* 5. Editorial body line-height 2.1 */
+.body-text {
+  font-size:clamp(1rem,2.5vw,1.12rem);
+  line-height:2.1;
+  color:var(--text-mid);
+  text-align:center;
+  font-weight:300;
+}
+.body-text em { font-style:italic; color:var(--gold); }
+
+/* ═══════════════════════════════════════════════════════
+   YAKUT ORNAMENTS — draw-on stroke + glow shimmer
+═══════════════════════════════════════════════════════ */
+.ornament-row {
+  display:flex; align-items:center; gap:1rem;
+  padding:0.5rem clamp(1rem,5vw,3rem);
+  max-width:760px; margin:0 auto;
+}
+.ornament-line {
+  flex:1; height:1px;
+  background:linear-gradient(90deg,#C4A97A 0%,#8C7356 50%,#C4A97A 100%);
+  opacity:0.4;
+}
+.ornament-svg { flex-shrink:0; }
+
+/* SVG paths start invisible via dashoffset */
+.ornament-row .dp {
+  stroke-dasharray:400;
+  stroke-dashoffset:400;
+  transition:stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1);
+}
+/* Filled paths start transparent */
+.ornament-row .fp {
+  opacity:0;
+  transition:opacity 0.8s ease 0.9s;
+}
+.ornament-row.in-view .dp { stroke-dashoffset:0; }
+.ornament-row.in-view .fp { opacity:1; }
+
+/* After drawing completes, alternate gold glow */
+.ornament-row.in-view .ornament-svg {
+  animation:orn-glow 3.8s ease-in-out 1.5s infinite alternate;
+}
+@keyframes orn-glow {
+  0%  { filter:drop-shadow(0 0 0px rgba(196,169,122,0)); }
+  100%{ filter:drop-shadow(0 0 8px rgba(196,169,122,0.72)); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   TIMING
+═══════════════════════════════════════════════════════ */
+.timing-date {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.5rem,8vw,4.2rem);
+  background:var(--foil); background-size:220% auto;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  text-align:center; display:block; margin-bottom:1.6rem;
+  animation:foil-pan 10s ease-in-out infinite alternate;
+}
+.timing-grid { display:flex; align-items:center; justify-content:center; }
+.timing-item { flex:1; text-align:center; padding:1rem; }
+.timing-time {
+  font-size:clamp(1.5rem,5vw,2.1rem); font-weight:300;
+  color:var(--gold); display:block; letter-spacing:0.05em;
+}
+.timing-label {
+  font-size:clamp(0.72rem,1.9vw,0.84rem); color:var(--text-mid);
+  letter-spacing:0.14em; text-transform:uppercase;
+  margin-top:0.4rem; display:block; font-weight:300;
+}
+.timing-divider {
+  width:1px; height:64px;
+  background:linear-gradient(180deg,transparent 0%,#C4A97A 30%,#8C7356 70%,transparent 100%);
+  opacity:0.55; flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   COUNTDOWN
+═══════════════════════════════════════════════════════ */
+.countdown-grid {
+  display:flex; justify-content:center;
+  gap:clamp(0.8rem,3vw,2rem); margin-top:1.6rem;
+}
+.count-block { text-align:center; min-width:clamp(60px,18vw,90px); }
+.count-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,8vw,4rem); font-weight:300;
+  background:var(--foil); background-size:220% auto;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  display:block; line-height:1; margin-bottom:0.4rem;
+  animation:foil-pan 12s ease-in-out infinite alternate;
+  transition:transform 0.2s ease;
+}
+.count-num.tick { transform:scale(1.12); }
+.count-label {
+  font-size:clamp(0.6rem,1.7vw,0.72rem);
+  letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--gold); opacity:0.78;
+}
+.count-sep {
+  font-size:clamp(1.5rem,5vw,2.5rem); color:var(--gold-l);
+  opacity:0.32; align-self:flex-start;
+  padding-top:0.3rem; font-weight:300; line-height:1.4;
+}
+
+/* ═══════════════════════════════════════════════════════
+   7. FOOTER — Tunnel of light bloom
+═══════════════════════════════════════════════════════ */
+footer {
+  text-align:center; padding:4.5rem 1.5rem 5.5rem;
+  position:relative; z-index:10; overflow:hidden;
+}
+
+/* Three-layer bloom: outer ambient, inner warm glow, core burst */
+footer::before {
+  content:''; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:min(90vw,580px); height:min(90vw,580px);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,
+    rgba(255,235,160,0.22)  0%,
+    rgba(240,205,110,0.10) 38%,
+    rgba(196,169,122,0.04) 62%,
+    transparent 76%
+  );
+  animation:bloom-outer 5s ease-in-out infinite;
+  pointer-events:none;
+}
+footer::after {
+  content:''; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:min(50vw,300px); height:min(50vw,300px);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,
+    rgba(255,248,210,0.35)  0%,
+    rgba(255,225,140,0.14) 45%,
+    transparent 70%
+  );
+  animation:bloom-inner 5s ease-in-out 0.4s infinite;
+  pointer-events:none;
+}
+@keyframes bloom-outer {
+  0%,100%{ transform:translate(-50%,-50%) scale(0.90); opacity:0.65; }
+  50%    { transform:translate(-50%,-50%) scale(1.10); opacity:1;    }
+}
+@keyframes bloom-inner {
+  0%,100%{ transform:translate(-50%,-50%) scale(0.85); opacity:0.55; }
+  50%    { transform:translate(-50%,-50%) scale(1.12); opacity:1;    }
+}
+
+.footer-script {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2rem,6.5vw,3.4rem);
+  background:var(--foil); background-size:220% auto;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  display:block; margin-bottom:0.7rem;
+  animation:foil-pan 8s ease-in-out infinite alternate;
+  position:relative; z-index:1;
+  /* glow bloom around text */
+  filter:
+    drop-shadow(0 0 20px rgba(255,215,100,0.42))
+    drop-shadow(0 0 40px rgba(240,190,80,0.22))
+    drop-shadow(0 1px 0 rgba(255,248,210,0.5));
+}
+.footer-small {
+  font-size:0.7rem; letter-spacing:0.35em; color:var(--gold);
+  opacity:0.48; text-transform:uppercase;
+  position:relative; z-index:1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════════ */
+.reveal { opacity:0; transform:translateY(34px); transition:opacity 0.95s ease,transform 0.95s ease; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- 1. PARALLAX DEPTH LAYER -->
+<div id="parallax-layer">
+  <div class="psh psh-d pd1"></div>
+  <div class="psh psh-d pd2"></div>
+  <div class="psh psh-d pd3"></div>
+  <div class="psh psh-d pd4"></div>
+  <div class="psh psh-c pc1"></div>
+  <div class="psh psh-c pc2"></div>
+  <div class="psh psh-c pc3"></div>
+</div>
+
+<!-- 2. SUN LEAK -->
+<div id="sun-leak"></div>
+
+<!-- PARTICLES -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- ════════════ ENVELOPE SCREEN ════════════ -->
+<div id="envelope-screen">
+  <p class="hint-text">Нажмите на конверт...</p>
+  <div class="envelope-wrap" id="envelope-trigger" role="button" tabindex="0" aria-label="Открыть приглашение">
+    <div class="envelope-body">
+      <div class="envelope-flap-outer" id="env-flap">
+        <div class="envelope-flap-inner"></div>
+      </div>
+      <div class="envelope-lining"></div>
+      <div class="wax-seal">
+        <div class="seal-circle"><span class="seal-year">2026</span></div>
+        <div class="seal-drip"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ MAIN CONTENT ════════════ -->
+<div id="main-content">
+
+  <!-- ① CINEMATIC PHOTO HERO — full-viewport, parallax image -->
+  <div class="photo-hero" id="photo-hero">
+    <div class="photo-hero-img" id="hero-img"></div>
+    <div class="photo-hero-vignette"></div>
+    <div class="photo-hero-text" id="hero-text">
+      <span class="hero-eyebrow">Приглашение</span>
+      <h1 class="hero-title">Выпускной вечер</h1>
+      <span class="hero-year">◆ &nbsp; 2026 &nbsp; ◆</span>
+      <span class="hero-scroll-cue" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <!-- ORNAMENT 1 -->
+  <div class="ornament-row reveal">
+    <div class="ornament-line"></div>
+    <svg class="ornament-svg" width="96" height="32" viewBox="0 0 96 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="96" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#C4A97A"/><stop offset="0.5" stop-color="#8C7356"/><stop offset="1" stop-color="#C4A97A"/>
+        </linearGradient>
+      </defs>
+      <path class="dp" d="M48 5 L57 16 L48 27 L39 16 Z" fill="none" stroke="url(#g1)" stroke-width="1.3"/>
+      <path class="fp" d="M48 10 L54 16 L48 22 L42 16 Z" fill="url(#g1)" fill-opacity="0.22"/>
+      <path class="fp" d="M6 16 L15 8 L15 24 Z"  fill="url(#g1)" fill-opacity="0.58"/>
+      <path class="fp" d="M90 16 L81 8 L81 24 Z" fill="url(#g1)" fill-opacity="0.58"/>
+      <path class="fp" d="M19 16 L25 10 L25 22 Z" fill="url(#g1)" fill-opacity="0.42"/>
+      <path class="fp" d="M77 16 L71 10 L71 22 Z" fill="url(#g1)" fill-opacity="0.42"/>
+      <line class="dp" x1="28" y1="16" x2="35" y2="16" stroke="url(#g1)" stroke-width="1.1" stroke-opacity="0.6"/>
+      <line class="dp" x1="68" y1="16" x2="61" y2="16" stroke="url(#g1)" stroke-width="1.1" stroke-opacity="0.6"/>
+    </svg>
+    <div class="ornament-line"></div>
+  </div>
+
+  <!-- ② WELCOME -->
+  <section>
+    <div class="section-inner reveal">
+      <div class="glass glass-panel">
+        <h2 class="section-title">Дорогой гость!</h2>
+        <p class="body-text">
+          С трепетом и радостью приглашаем вас разделить с нами&nbsp;этот особенный вечер —
+          торжество окончания учёбы, рождение новых горизонтов.
+          <br><br>
+          Мы прошли долгий путь, и теперь, когда двери открыты в будущее,
+          нам хочется отпраздновать это мгновение в кругу тех, кто был рядом.
+          <br><br>
+          <em>Ваше присутствие — лучший подарок.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORNAMENT 2 -->
+  <div class="ornament-row reveal">
+    <div class="ornament-line"></div>
+    <svg class="ornament-svg" width="116" height="28" viewBox="0 0 116 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g2" x1="0" y1="0" x2="116" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#C4A97A"/><stop offset="0.5" stop-color="#8C7356"/><stop offset="1" stop-color="#C4A97A"/>
+        </linearGradient>
+      </defs>
+      <rect class="dp" x="52" y="9" width="12" height="10" rx="1.5" fill="none" stroke="url(#g2)" stroke-width="1.2"/>
+      <rect class="dp" x="55" y="5" width="6" height="18" rx="1.5" fill="none" stroke="url(#g2)" stroke-width="1.2"/>
+      <path class="fp" d="M11 14 L19 6 L19 14 L27 6 L27 22 L19 14 L19 22 Z" fill="url(#g2)" fill-opacity="0.40"/>
+      <path class="fp" d="M105 14 L97 6 L97 14 L89 6 L89 22 L97 14 L97 22 Z" fill="url(#g2)" fill-opacity="0.40"/>
+      <path class="fp" d="M32 14 L38 8 L38 20 Z" fill="url(#g2)" fill-opacity="0.50"/>
+      <path class="fp" d="M84 14 L78 8 L78 20 Z" fill="url(#g2)" fill-opacity="0.50"/>
+      <line class="dp" x1="42" y1="14" x2="49" y2="14" stroke="url(#g2)" stroke-width="0.9" stroke-opacity="0.55"/>
+      <line class="dp" x1="74" y1="14" x2="67" y2="14" stroke="url(#g2)" stroke-width="0.9" stroke-opacity="0.55"/>
+    </svg>
+    <div class="ornament-line"></div>
+  </div>
+
+  <!-- ③ TIMING -->
+  <section>
+    <div class="section-inner reveal">
+      <div class="glass glass-panel">
+        <span class="timing-date">25 июня 2026</span>
+        <div class="timing-grid">
+          <div class="timing-item">
+            <span class="timing-time">15:00</span>
+            <span class="timing-label">Сбор гостей</span>
+          </div>
+          <div class="timing-divider"></div>
+          <div class="timing-item">
+            <span class="timing-time">16:00</span>
+            <span class="timing-label">Начало</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORNAMENT 3 -->
+  <div class="ornament-row reveal">
+    <div class="ornament-line"></div>
+    <svg class="ornament-svg" width="104" height="30" viewBox="0 0 104 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g3" x1="0" y1="0" x2="104" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#C4A97A"/><stop offset="0.5" stop-color="#8C7356"/><stop offset="1" stop-color="#C4A97A"/>
+        </linearGradient>
+      </defs>
+      <circle class="dp" cx="52" cy="15" r="9" fill="none" stroke="url(#g3)" stroke-width="1.2"/>
+      <circle class="fp" cx="52" cy="15" r="4"  fill="url(#g3)" fill-opacity="0.3"/>
+      <path class="fp" d="M7 15 C7 9,16 4,20 15 C16 26,7 21,7 15Z"   fill="url(#g3)" fill-opacity="0.44"/>
+      <path class="fp" d="M97 15 C97 9,88 4,84 15 C88 26,97 21,97 15Z" fill="url(#g3)" fill-opacity="0.44"/>
+      <line class="dp" x1="25" y1="15" x2="41" y2="15" stroke="url(#g3)" stroke-width="0.9" stroke-opacity="0.55"/>
+      <line class="dp" x1="79" y1="15" x2="63" y2="15" stroke="url(#g3)" stroke-width="0.9" stroke-opacity="0.55"/>
+      <circle class="fp" cx="23" cy="15" r="2.8" fill="url(#g3)" fill-opacity="0.58"/>
+      <circle class="fp" cx="81" cy="15" r="2.8" fill="url(#g3)" fill-opacity="0.58"/>
+    </svg>
+    <div class="ornament-line"></div>
+  </div>
+
+  <!-- ④ COUNTDOWN -->
+  <section>
+    <div class="section-inner reveal">
+      <div class="glass glass-panel">
+        <h2 class="section-title">До встречи!</h2>
+        <div class="countdown-grid">
+          <div class="count-block">
+            <span class="count-num" id="cd-days">00</span>
+            <span class="count-label">Дней</span>
+          </div>
+          <span class="count-sep">·</span>
+          <div class="count-block">
+            <span class="count-num" id="cd-hours">00</span>
+            <span class="count-label">Часов</span>
+          </div>
+          <span class="count-sep">·</span>
+          <div class="count-block">
+            <span class="count-num" id="cd-mins">00</span>
+            <span class="count-label">Минут</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORNAMENT 4 -->
+  <div class="ornament-row reveal">
+    <div class="ornament-line"></div>
+    <svg class="ornament-svg" width="96" height="32" viewBox="0 0 96 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g4" x1="0" y1="0" x2="96" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#C4A97A"/><stop offset="0.5" stop-color="#8C7356"/><stop offset="1" stop-color="#C4A97A"/>
+        </linearGradient>
+      </defs>
+      <path class="dp" d="M48 3 L51.5 12 L61 12 L53.5 18 L56.5 28 L48 22 L39.5 28 L42.5 18 L35 12 L44.5 12 Z"
+            fill="none" stroke="url(#g4)" stroke-width="1.2"/>
+      <path class="fp" d="M48 9 L49.8 15 L56 15 L51 18.5 L52.8 24 L48 21 L43.2 24 L45 18.5 L40 15 L46.2 15 Z"
+            fill="url(#g4)" fill-opacity="0.22"/>
+      <line class="dp" x1="0"  y1="16" x2="28" y2="16" stroke="url(#g4)" stroke-width="0.9" stroke-opacity="0.4"/>
+      <line class="dp" x1="96" y1="16" x2="68" y2="16" stroke="url(#g4)" stroke-width="0.9" stroke-opacity="0.4"/>
+      <circle class="fp" cx="9"  cy="16" r="2.8" fill="url(#g4)" fill-opacity="0.46"/>
+      <circle class="fp" cx="87" cy="16" r="2.8" fill="url(#g4)" fill-opacity="0.46"/>
+    </svg>
+    <div class="ornament-line"></div>
+  </div>
+
+  <!-- ⑤ FOOTER -->
+  <footer>
+    <span class="footer-script">До скорой встречи!</span>
+    <p class="footer-small">◆ &nbsp; Выпускной вечер 2026 &nbsp; ◆</p>
+  </footer>
+
+</div><!-- /main-content -->
+
+<!-- ════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ──────────────────────────────────────────────
+   AMBIENT GOLD PARTICLES
+────────────────────────────────────────────── */
+(function particles(){
+  const cv = document.getElementById('particle-canvas');
+  const cx = cv.getContext('2d');
+  let W, H, mx = 0, sy = 0;
+  const N = 52, pool = [];
+
+  const resize = () => { W = cv.width = innerWidth; H = cv.height = innerHeight; };
+
+  const mk = () => ({
+    x: Math.random()*W, y: Math.random()*H,
+    r: Math.random()*1.85 + 0.35,
+    al: Math.random()*0.24 + 0.05,
+    vx: (Math.random()-0.5)*0.15,
+    vy: -(Math.random()*0.2 + 0.06),
+    hu: Math.random()*24 + 26,   /* warm gold hue range */
+    pr: Math.random()*0.03 + 0.007,
+    li: Math.random()*300+190,
+    ag: 0
+  });
+
+  const init = () => {
+    resize();
+    for(let i=0;i<N;i++){ const p=mk(); p.ag=Math.random()*p.li|0; pool.push(p); }
+  };
+
+  const draw = () => {
+    cx.clearRect(0,0,W,H);
+    const px=(mx/W-0.5), py=Math.min(sy/Math.max(H,1),1);
+    pool.forEach((p,i)=>{
+      p.ag++;
+      if(p.ag>=p.li){ pool[i]=mk(); return; }
+      const f = p.ag<50 ? p.ag/50 : p.ag>p.li-50 ? (p.li-p.ag)/50 : 1;
+      const a = p.al*f;
+      cx.beginPath();
+      cx.arc(p.x+px*p.pr*92, p.y+py*p.pr*72, p.r, 0, 6.283);
+      cx.fillStyle = `hsla(${p.hu},56%,67%,${a})`;
+      cx.shadowBlur = 4.5;
+      cx.shadowColor = `hsla(${p.hu},56%,74%,${a*0.5})`;
+      cx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-10) p.x=W+10; if(p.x>W+10) p.x=-10; if(p.y<-10) p.y=H+10;
+    });
+    requestAnimationFrame(draw);
+  };
+
+  addEventListener('resize', resize, {passive:true});
+  addEventListener('mousemove', e => { mx=e.clientX; }, {passive:true});
+  addEventListener('scroll', () => { sy=scrollY; }, {passive:true});
+  init(); draw();
+})();
+
+
+/* ──────────────────────────────────────────────
+   ENVELOPE OPEN
+────────────────────────────────────────────── */
+const envScreen = document.getElementById('envelope-screen');
+const mainEl    = document.getElementById('main-content');
+const envFlap   = document.getElementById('env-flap');
+const pCanvas   = document.getElementById('particle-canvas');
+const parLayer  = document.getElementById('parallax-layer');
+const sunEl     = document.getElementById('sun-leak');
+const trigger   = document.getElementById('envelope-trigger');
+let opened = false;
+
+function openInvitation() {
+  if (opened) return; opened = true;
+  envFlap.classList.add('flap-open');
+  setTimeout(()=> envScreen.classList.add('open'), 620);
+  setTimeout(()=> {
+    envScreen.style.display = 'none';
+    mainEl.classList.add('visible');
+    pCanvas.classList.add('visible');
+    parLayer.classList.add('visible');
+    sunEl.classList.add('visible');
+  }, 1250);
+}
+trigger.addEventListener('click', openInvitation);
+trigger.addEventListener('keydown', e => {
+  if (e.key==='Enter' || e.key===' ') { e.preventDefault(); openInvitation(); }
+});
+
+
+/* ──────────────────────────────────────────────
+   1. PARALLAX — smooth RAF-based scroll
+────────────────────────────────────────────── */
+const shapes = document.querySelectorAll('.psh');
+
+/* Assign unique parallax speed and base rotation per shape */
+const shapeConfig = [
+  { spd:0.12, rot:45 },   /* pd1 */
+  { spd:0.22, rot:45 },   /* pd2 */
+  { spd:0.16, rot:45 },   /* pd3 */
+  { spd:0.25, rot:45 },   /* pd4 */
+  { spd:0.32, rot:0  },   /* pc1 — circles don't need rot */
+  { spd:0.28, rot:0  },   /* pc2 */
+  { spd:0.19, rot:0  },   /* pc3 */
+];
+
+let lastSY = 0, ticking = false;
+
+function applyParallax(sy) {
+  shapes.forEach((s, i) => {
+    const cfg = shapeConfig[i] || { spd:0.2, rot:0 };
+    const ty  = sy * cfg.spd * -0.38;
+    s.style.transform = cfg.rot
+      ? `translateY(${ty}px) rotate(${cfg.rot}deg)`
+      : `translateY(${ty}px)`;
+  });
+}
+
+window.addEventListener('scroll', () => {
+  lastSY = scrollY;
+  if (!ticking) {
+    requestAnimationFrame(() => { applyParallax(lastSY); ticking=false; });
+    ticking = true;
+  }
+}, {passive:true});
+
+
+/* ──────────────────────────────────────────────
+   2. SUN LEAK — interpolated scroll position
+────────────────────────────────────────────── */
+const sunStops = [
+  { top:14, left:74 },
+  { top:30, left:18 },
+  { top:50, left:82 },
+  { top:66, left:26 },
+  { top:82, left:68 },
+];
+
+function updateSun() {
+  const maxSY = document.documentElement.scrollHeight - innerHeight;
+  const pct   = Math.min(scrollY / Math.max(maxSY,1), 1);
+  const raw   = pct * (sunStops.length - 1);
+  const lo    = Math.floor(raw);
+  const hi    = Math.min(lo + 1, sunStops.length - 1);
+  const t     = raw - lo;
+  const A     = sunStops[lo], B = sunStops[hi];
+  sunEl.style.top  = (A.top  + (B.top  - A.top)  * t) + 'vh';
+  sunEl.style.left = (A.left + (B.left - A.left)  * t) + 'vw';
+}
+window.addEventListener('scroll', updateSun, {passive:true});
+
+
+/* ──────────────────────────────────────────────
+   COUNTDOWN
+────────────────────────────────────────────── */
+const elD = document.getElementById('cd-days');
+const elH = document.getElementById('cd-hours');
+const elM = document.getElementById('cd-mins');
+
+function setTick(el, val) {
+  if (el.textContent === val) return;
+  el.classList.remove('tick'); void el.offsetWidth;
+  el.classList.add('tick'); el.textContent = val;
+  setTimeout(() => el.classList.remove('tick'), 220);
+}
+function countdown() {
+  const diff = new Date('2026-06-25T15:00:00') - new Date();
+  if (diff <= 0) { elD.textContent = elH.textContent = elM.textContent = '00'; return; }
+  setTick(elD, String(Math.floor( diff / 86400000)).padStart(2,'0'));
+  setTick(elH, String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0'));
+  setTick(elM, String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0'));
+}
+countdown(); setInterval(countdown, 15000);
+
+
+/* ──────────────────────────────────────────────
+   PHOTO HERO — parallax image + text fade on scroll
+────────────────────────────────────────────── */
+const heroImg  = document.getElementById('hero-img');
+const heroText = document.getElementById('hero-text');
+const heroH    = () => document.getElementById('photo-hero').offsetHeight;
+
+function updateHeroParallax() {
+  const sy = scrollY;
+  const h  = heroH();
+  if (sy > h) return;
+
+  // Image moves at 45% of scroll speed (slower = deeper parallax)
+  heroImg.style.transform = `translateY(${sy * 0.45}px)`;
+
+  // Text drifts upward slightly and fades out
+  const progress = Math.min(sy / (h * 0.6), 1);
+  heroText.style.opacity   = 1 - progress;
+  heroText.style.transform = `translateY(${-sy * 0.18}px)`;
+}
+
+window.addEventListener('scroll', updateHeroParallax, { passive: true });
+updateHeroParallax();
+
+
+/* ──────────────────────────────────────────────
+   SCROLL REVEAL
+────────────────────────────────────────────── */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in-view'); revObs.unobserve(e.target); }
+  });
+}, { threshold:0.1, rootMargin:'0px 0px -28px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+
+/* ──────────────────────────────────────────────
+   5. MICRO-TYPOGRAPHY — letter-spacing bloom on scroll
+────────────────────────────────────────────── */
+const typeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('type-bloom');
+      setTimeout(() => e.target.classList.remove('type-bloom'), 1000);
+      typeObs.unobserve(e.target);
+    }
+  });
+}, { threshold:0.55 });
+document.querySelectorAll('.section-title').forEach(t => typeObs.observe(t));
+
+
+/* ──────────────────────────────────────────────
+   4. GLASS GLINT — staggered per panel, loops
+────────────────────────────────────────────── */
+function glint(panel) {
+  const r = panel.getBoundingClientRect();
+  if (r.top < innerHeight && r.bottom > 0) {
+    panel.classList.remove('glinting'); void panel.offsetWidth;
+    panel.classList.add('glinting');
+    setTimeout(() => panel.classList.remove('glinting'), 1600);
+  }
+  setTimeout(() => glint(panel), 5200 + Math.random() * 3200);
+}
+
+/* Start glints staggered after reveal */
+setTimeout(() => {
+  document.querySelectorAll('.glass-panel, .location-card').forEach((p, i) => {
+    setTimeout(() => glint(p), i * 1900 + Math.random() * 1400);
+  });
+}, 2800);
+</script>
+</body>
+</html>
